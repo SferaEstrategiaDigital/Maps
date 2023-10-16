@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -20,4 +20,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-})
+  base: "/maps/",
+});
