@@ -36,7 +36,7 @@ export default defineComponent({
     // Usando o composable useMap
     const {
       // map,
-      // markers,
+      markers,
       magnetometer,
       initializeMap,
       addMarker,
@@ -105,10 +105,25 @@ export default defineComponent({
       magnetometer.value = +heading;
     };
 
+    const addMarkers = (event: any) => {
+      let json = event.target.value;
+
+      try {
+        json = JSON.parse(json);
+      } catch (e) {
+        alert("Parece que não é um json válido");
+      }
+      json.map((i: any) => {
+        addMarker(i.coordinates[1], i.coordinates[0], 0, 0, null);
+      });
+      console.log(markers);
+    };
+
     // Este é o objeto retornado pela função setup.
     // Ele expõe propriedades e métodos reativos que podem ser usados no template do componente.
     return {
       contentHeight,
+      addMarkers,
       data,
       hasLocation, // Indica se uma localização foi obtida
       coordinates, // Coordenadas no formato "latitude,longitude"
@@ -173,6 +188,13 @@ export default defineComponent({
           </div>
         </li>
       </ul>
+      <div class="w-full">
+        <input
+          type="text"
+          class="bg-green-100 w-full"
+          @keydown.enter="addMarkers($event)"
+        />
+      </div>
     </div>
 
     <!-- Barra inferior com informações do usuário -->
