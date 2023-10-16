@@ -6,6 +6,7 @@ import {
   watch,
   computed,
   ref,
+  inject,
 } from "vue"; // Importando funções úteis do Vue 3.
 import "leaflet/dist/leaflet.css"; // Importando estilos CSS do Leaflet.
 
@@ -46,6 +47,8 @@ export default defineComponent({
     const data = ref("");
 
     const { getNearestStreet } = useAddressLookup();
+
+    const contentHeight = inject("contentHeight") ?? {};
 
     watch(magnetometer, () => {
       // updateMarkerPosition(+latitude.value, +longitude.value, 0);
@@ -105,6 +108,7 @@ export default defineComponent({
     // Este é o objeto retornado pela função setup.
     // Ele expõe propriedades e métodos reativos que podem ser usados no template do componente.
     return {
+      contentHeight,
       data,
       hasLocation, // Indica se uma localização foi obtida
       coordinates, // Coordenadas no formato "latitude,longitude"
@@ -149,7 +153,13 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="relative h-screen w-full">
+  <div
+    class="relative w-full"
+    :style="{
+      minHeight: contentHeight + 'px',
+      maxHeight: contentHeight + 'px',
+    }"
+  >
     <!-- Elemento do Mapa -->
     <div ref="map" id="map" class="absolute inset-0 z-10"></div>
 
