@@ -101,14 +101,14 @@ export default function useMap() {
    * @param lng Longitude atual
    * @param alt Altitude atual
    */
-  const updateMarkerPosition = (
-    id: number,
-    latitude: number,
-    longitude: number,
-    altitude: number,
-    magnetometer: number,
-    icon: any
-  ) => {
+  // const updateMarkerPosition = (
+  //   id: number,
+  //   latitude: number,
+  //   longitude: number,
+  //   altitude: number,
+  //   magnetometer: number,
+  //   icon: any
+  // ) => {
     // Verifica se o marcador e as coordenadas estão definidos
     //   if (map.value && markerData.latitude && markerData.longitude) {
     //   // Cria um novo objeto LatLng com as coordenadas extraídas
@@ -122,7 +122,7 @@ export default function useMap() {
     //   // Chama o método addMarker para garantir que o marcador seja adicionado ao mapa (se ainda não estiver)
     //   // addMarker(`${markerData.latitude},${markerData.longitude}`, 0, magn);
     // }
-  };
+  // };
 
   /**
    * Centraliza o mapa nas coordenadas fornecidas.
@@ -146,7 +146,7 @@ export default function useMap() {
     magnetometer,
     initializeMap,
     addMarker,
-    updateMarkerPosition,
+    // updateMarkerPosition,
     centerMapOnCoordinates,
   };
 }
