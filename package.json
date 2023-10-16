@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview",
-    "deploy": "gh-pages -d dist --remote github"
+    "deploy": "yarn build && gh-pages -d dist --remote github && rm -rf dist",
+    "preview": "vite preview"
   },
   "dependencies": {
     "leaflet": "^1.9.4",
