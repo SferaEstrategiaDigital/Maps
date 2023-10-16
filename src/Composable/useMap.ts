@@ -73,7 +73,7 @@ export default function useMap() {
       // }
 
       const magn = magnetometer ? `transform: rotate(${magnetometer}deg)` : "";
-      let newIcon = undefined;
+      let newIcon = {};
 
       if (icon) {
         // Define o ícone personalizado para o marcador
@@ -85,7 +85,10 @@ export default function useMap() {
       }
 
       // Cria um novo marcador com o ícone personalizado e adiciona ao mapa
-      const newMarker = new L.Marker(newLatLng, newIcon);
+      const newMarker = new L.Marker(newLatLng, {
+        ...newIcon,
+        draggable: true,
+      });
 
       newMarker.addTo(map.value);
 
@@ -109,19 +112,19 @@ export default function useMap() {
   //   magnetometer: number,
   //   icon: any
   // ) => {
-    // Verifica se o marcador e as coordenadas estão definidos
-    //   if (map.value && markerData.latitude && markerData.longitude) {
-    //   // Cria um novo objeto LatLng com as coordenadas extraídas
-    //   const newLatLng = new L.LatLng(
-    //     markerData.latitude,
-    //     markerData.longitude
-    //   );
-    //   // Atualiza a posição do marcador com o novo LatLng
-    //   markers.value[markerData.id].setLatLng(newLatLng);
-    //   const magn = markerData.magnetometer;
-    //   // Chama o método addMarker para garantir que o marcador seja adicionado ao mapa (se ainda não estiver)
-    //   // addMarker(`${markerData.latitude},${markerData.longitude}`, 0, magn);
-    // }
+  // Verifica se o marcador e as coordenadas estão definidos
+  //   if (map.value && markerData.latitude && markerData.longitude) {
+  //   // Cria um novo objeto LatLng com as coordenadas extraídas
+  //   const newLatLng = new L.LatLng(
+  //     markerData.latitude,
+  //     markerData.longitude
+  //   );
+  //   // Atualiza a posição do marcador com o novo LatLng
+  //   markers.value[markerData.id].setLatLng(newLatLng);
+  //   const magn = markerData.magnetometer;
+  //   // Chama o método addMarker para garantir que o marcador seja adicionado ao mapa (se ainda não estiver)
+  //   // addMarker(`${markerData.latitude},${markerData.longitude}`, 0, magn);
+  // }
   // };
 
   /**
