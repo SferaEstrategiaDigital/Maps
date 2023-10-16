@@ -34,12 +34,12 @@ export default defineComponent({
 
     // Usando o composable useMap
     const {
-      map,
-      markers,
+      // map,
+      // markers,
       magnetometer,
       initializeMap,
       addMarker,
-      updateMarkerPosition,
+      // updateMarkerPosition,
       centerMapOnCoordinates,
     } = useMap();
 
@@ -89,9 +89,9 @@ export default defineComponent({
       // Obtendo o valor de orientação do dispositivo em relação ao norte magnético
       const alpha = event.alpha || 0;
       // Obtendo o valor de orientação do dispositivo em relação ao plano x-y
-      const beta = event.beta || 0;
+      // const beta = event.beta || 0;
       // Obtendo o valor de orientação do dispositivo em relação ao plano x-z
-      const gamma = event.gamma || 0;
+      // const gamma = event.gamma || 0;
 
       // Calculando a direção do norte magnético
       var heading = 360 - alpha;
@@ -121,7 +121,7 @@ export default defineComponent({
           MarkerIcon2
         ); */
 
-        const markerId2 = addMarker(
+        addMarker(
           latitude.value,
           longitude.value,
           altitude.value,
@@ -134,7 +134,7 @@ export default defineComponent({
           longitude.value
         );
 
-        const markerId3 = addMarker(response.lat, response.lon, 0, 0, null);
+        addMarker(response.lat, response.lon, 0, 0, null);
 
         // updateMarkerPosition(response.lat, response.lon, 0);
 
