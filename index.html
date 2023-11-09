@@ -1,12 +1,26 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/maps/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/maps/manifest.json" />
+    <meta name="theme-color" content="#4DBA87" />
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("sw.js")
+          .then((registration) => {
+            console.log("Service Worker registrado com sucesso:", registration);
+          })
+          .catch((error) => {
+            console.log("Erro ao registrar o Service Worker:", error);
+          });
+      }
+    </script>
     <title>Mapas</title>
-    <script type="module" crossorigin src="/maps/assets/index-01fa9b11.js"></script>
-    <link rel="stylesheet" href="/maps/assets/index-7e24d296.css">
+    <script type="module" crossorigin src="/maps/assets/index-6e8ce4e7.js"></script>
+    <link rel="stylesheet" href="/maps/assets/index-bf0ea61b.css">
   </head>
   <body>
     <div id="app"></div>
